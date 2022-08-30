@@ -1,10 +1,10 @@
 <?php 
 
 // require autoload class
-require __DIR__ . '/vendor/autoload.php';
+require './vendor/autoload.php';
 
 // Require Dotenv Class; To load environment varaibles.
-$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
+$dotenv = Dotenv\Dotenv::createImmutable('./');
 $dotenv->load();
 
 require getcwd() . '/InstantMailer.php';
