@@ -1,6 +1,6 @@
 <?php
 
-require "config/Config.php";
+require __DIR__ . "/config/Config.php";
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
@@ -134,22 +134,22 @@ class InstantMailer extends Config
                         return true;
                     }
                 } catch (Exception $e) {
-                    Config::debug_backtrace_show($e);
-                    return false;
+                    $debug_trace = Config::debug_backtrace_show($e);
+                    return $e;
                 }
             }
             else {
                 $e = "No default mailing service method set!";
-                Config::debug_backtrace_show($e);
+                $debug_trace = Config::debug_backtrace_show($e);
     
-                return false;
+                return ($debug_trace) ? $debug_trace : $e;
             }
         }
         else {
             $e = "No default mailing service set!";
-            Config::debug_backtrace_show($e);
+            $debug_trace = Config::debug_backtrace_show($e);
 
-            return false;
+            return ($debug_trace) ? $debug_trace : $e;
         }
     }
 }

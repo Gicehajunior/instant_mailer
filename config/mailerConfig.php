@@ -1,5 +1,5 @@
 
-<?php
+<?php  
 
 /************************************
  * 
@@ -42,12 +42,12 @@ return [
      */
     'mailer' => array(
         'smtp' => array(
-            'host' => $_ENV['MAIL_HOST'],
-            'port' => $_ENV['MAIL_PORT'], 
-            'encryption_criteria' => $_ENV['MAIL_ENCRYPTION_CRITERIA'],
+            'host' => (env('MAIL_HOST')) ? env('MAIL_HOST') : $_ENV['MAIL_HOST'],
+            'port' => (env('MAIL_PORT')) ? env('MAIL_PORT') : $_ENV['MAIL_PORT'], 
+            'encryption_criteria' => (env('MAIL_ENCRYPTION_CRITERIA')) ? env('MAIL_ENCRYPTION_CRITERIA') : $_ENV['MAIL_ENCRYPTION_CRITERIA'],
             'encoding' => 'UTF-8',
             'timeout' => 300,
-            'debug' => false
+            'debug' => (env('DEBUG')) ? env('DEBUG') : false
         )
     ),
 
@@ -60,9 +60,9 @@ return [
      * The settings should be setup in the .env file as well.
      */
     'source' => array (
-        'email_address' => $_ENV['MAIL_SOURCE_ADDRESS'],
-        'email_username' => $_ENV['MAIL_SOURCE_USERNAME'],
-        'email_password' => $_ENV['MAIL_SOURCE_ADDRESS_PASSWORD']
+        'email_address' => (env('MAIL_SOURCE_ADDRESS')) ? env('MAIL_SOURCE_ADDRESS') : $_ENV['MAIL_SOURCE_ADDRESS'],
+        'email_username' => (env('MAIL_SOURCE_USERNAME')) ? env('MAIL_SOURCE_USERNAME') : $_ENV['MAIL_SOURCE_USERNAME'],
+        'email_password' => (env('MAIL_SOURCE_ADDRESS_PASSWORD')) ? env('MAIL_SOURCE_ADDRESS_PASSWORD') : $_ENV['MAIL_SOURCE_ADDRESS_PASSWORD']
     ),
 
 
@@ -77,7 +77,7 @@ return [
     'markup_lang' => array(
         'preset' => true,
         'default' => array(
-            'path' => $_ENV['MAILS_TEMPLATES_PATH']
+            'path' => (env('MAILS_TEMPLATES_PATH')) ? env('MAILS_TEMPLATES_PATH') : $_ENV['MAILS_TEMPLATES_PATH']
         )
     ),
 
