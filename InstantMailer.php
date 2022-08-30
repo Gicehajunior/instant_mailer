@@ -1,6 +1,6 @@
 <?php
 
-require "./config/Config.php";
+require "config/Config.php";
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
