@@ -52,7 +52,7 @@ class InstantMailer extends Config
         $this->mail_encryption_criteria = $this->config['mailer']['smtp']['encryption_criteria'];
         $this->mail_service_default_method = $this->config['mail_service_default_method'];
         $this->sender_email_address = ($sender_email_address) ? $sender_email_address : $this->config['source']['email_address'];
-        $this->sender_email_username = ($sender_email_username) ? $sender_email_username : ($sender_email_address) ? $sender_email_address : $this->config['source']['email_username'];
+        $this->sender_email_username = ($sender_email_username) ? $sender_email_username : (($sender_email_address) ? $sender_email_address : $this->config['source']['email_username']);
         $this->sender_email_address_password = ($sender_email_address_password) ? $sender_email_address_password : ($this->config['source']['email_password']);
     } 
 
